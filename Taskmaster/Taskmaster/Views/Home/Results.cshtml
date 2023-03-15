@@ -1,0 +1,397 @@
+﻿@{
+ViewData["Title"] = "Results Page";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/css/site-results.css" />
+<link rel="stylesheet" href="~/css/adv-search.css" />
+<div class="search-page-container">
+    <div class="adv-search-container">
+      <form>
+        <div class="inner-form">
+          <div class="basic-search">
+            <div class="input-field">
+              <div class="icon-wrap">
+                <i class="fa fa-search"></i>
+              </div>
+              <input id="search" type="text" placeholder="Search..." />
+              <div class="result-count">
+                <a href="" id="advanced-search-button">Advanced</a></div>
+            </div>
+          </div>
+          <div class="advance-search" id="advanced-search-area">
+            <span class="desc">Advanced Search</span>
+            <div class="row">
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="choices-single-defaul">
+                    <option placeholder="" value="">LOCATION</option>
+                    <option>From Home</option>
+                    <option>Requires Travel</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="choices-single-defaul">
+                    <option placeholder="" value="">TYPE</option>
+                    <option>Fixed</option>
+                    <option>Tender</option>
+                    <option>Bounty</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select data-trigger="" name="choices-single-defaul">
+                    <option placeholder="" value="">CATAGORY</option>
+                    <option>Programming</option>
+                    <option>Handyman</option>
+                    <option>Design</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row second">
+              <div class="input-field">
+                <div class="input-select">
+                  <input id="adv-s-min" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="START DATE"/>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <input id="adv-s-max" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="END DATE"/>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <input id="adv-s-pcode" type="number" min="0000" max="9999" placeholder="POSTCODE" pattern="/^(?:(?:[2-8]\d|9[0-7]|0?[28]|0?9(?=09))(?:\d{2}))$/"/>
+                </div>
+              </div>
+            </div>
+            <div class="row third">
+              <div class="input-field">
+                <button class="btn-search">Search</button>
+                <button class="btn-delete" id="delete">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+<div class="collapse-container">
+<button class="collapsible">Profiles</button>
+<div class="content">
+    <div class="card-profile-body">
+        <div class="wrapper-flex">
+            <div class="people-container">
+                <div class='banner-img'></div>
+                <img src="@Url.Content("~/images/results/profile.jpg")" alt='profile image' class="profile-img">
+                <h3 class="name">Hikari Boehart</h3>
+                <h3 class="sub-name">H_Boehart</h3>
+                <img src="@Url.Content("~/images/results/5-stars.png")" alt="" class="review-icon">
+                <p class="description">Hi there! My name is Hikari and I am an experienced website designer with
+                    specialties in fashion trends. Contact me through my profile!</p>
+                <div class="icons-container">
+                    <a href="#" class="icon">
+                        <i class="fab fa-facebook fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-instagram fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-google-plus-g fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-twitter fab-results"></i>
+                    </a>
+                </div>
+                <div class="buttons-wrap">
+                    <div class="quote-wrap">
+                        <a href="#" class="quote">Get a Quote</a>
+                    </div>
+                    <div class="profile-wrap">
+                        <a href="#" class="profile">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="people-container">
+                <div class='banner-img'></div>
+                <img src="@Url.Content("~/images/results/profile.jpg")" alt='profile image' class="profile-img">
+                <h3 class="name">Hikari Boehart</h3>
+                <h3 class="sub-name">H_Boehart</h3>
+                <img src="@Url.Content("~/images/results/5-stars.png")" alt="" class="review-icon">
+                <p class="description">Hi there! My name is Hikari and I am an experienced website designer with
+                    specialties in fashion trends. Contact me through my profile!</p>
+                <div class="icons-container">
+                    <a href="#" class="icon">
+                        <i class="fab fa-facebook fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-instagram fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-google-plus-g fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-twitter fab-results"></i>
+                    </a>
+                </div>
+                <div class="buttons-wrap">
+                    <div class="quote-wrap">
+                        <a href="#" class="quote">Get a Quote</a>
+                    </div>
+                    <div class="profile-wrap">
+                        <a href="#" class="profile">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="people-container">
+                <div class='banner-img'></div>
+                <img src="@Url.Content("~/images/results/profile.jpg")" alt='profile image' class="profile-img">
+                <h3 class="name">Hikari Boehart</h3>
+                <h3 class="sub-name">H_Boehart</h3>
+                <img src="@Url.Content("~/images/results/5-stars.png")" alt="" class="review-icon">
+                <p class="description">Hi there! My name is Hikari and I am an experienced website designer with
+                    specialties in fashion trends. Contact me through my profile!</p>
+                <div class="icons-container">
+                    <a href="#" class="icon">
+                        <i class="fab fa-facebook fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-instagram fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-google-plus-g fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-twitter fab-results"></i>
+                    </a>
+                </div>
+                <div class="buttons-wrap">
+                    <div class="quote-wrap">
+                        <a href="#" class="quote">Get a Quote</a>
+                    </div>
+                    <div class="profile-wrap">
+                        <a href="#" class="profile">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="people-container">
+                <div class='banner-img'></div>
+                <img src="@Url.Content("~/images/results/profile.jpg")" alt='profile image' class="profile-img">
+                <h3 class="name">Hikari Boehart</h3>
+                <h3 class="sub-name">H_Boehart</h3>
+                <img src="@Url.Content("~/images/results/5-stars.png")" alt="" class="review-icon">
+                <p class="description">Hi there! My name is Hikari and I am an experienced website designer with
+                    specialties in fashion trends. Contact me through my profile!</p>
+                <div class="icons-container">
+                    <a href="#" class="icon">
+                        <i class="fab fa-facebook fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-instagram fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-google-plus-g fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-twitter fab-results"></i>
+                    </a>
+                </div>
+                <div class="buttons-wrap">
+                    <div class="quote-wrap">
+                        <a href="#" class="quote">Get a Quote</a>
+                    </div>
+                    <div class="profile-wrap">
+                        <a href="#" class="profile">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="people-container">
+                <div class='banner-img'></div>
+                <img src="@Url.Content("~/images/results/profile.jpg")" alt='profile image' class="profile-img">
+                <h3 class="name">Hikari Boehart</h3>
+                <h3 class="sub-name">H_Boehart</h3>
+                <img src="@Url.Content("~/images/results/5-stars.png")" alt="" class="review-icon">
+                <p class="description">Hi there! My name is Hikari and I am an experienced website designer with
+                    specialties in fashion trends. Contact me through my profile!</p>
+                <div class="icons-container">
+                    <a href="#" class="icon">
+                        <i class="fab fa-facebook fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-instagram fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-google-plus-g fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-twitter fab-results"></i>
+                    </a>
+                </div>
+                <div class="buttons-wrap">
+                    <div class="quote-wrap">
+                        <a href="#" class="quote">Get a Quote</a>
+                    </div>
+                    <div class="profile-wrap">
+                        <a href="#" class="profile">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="people-container">
+                <div class='banner-img'></div>
+                <img src="@Url.Content("~/images/results/profile.jpg")" alt='profile image' class="profile-img">
+                <h3 class="name">Hikari Boehart</h3>
+                <h3 class="sub-name">H_Boehart</h3>
+                <img src="@Url.Content("~/images/results/5-stars.png")" alt="" class="review-icon">
+                <p class="description">Hi there! My name is Hikari and I am an experienced website designer with
+                    specialties in fashion trends. Contact me through my profile!</p>
+                <div class="icons-container">
+                    <a href="#" class="icon">
+                        <i class="fab fa-facebook fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-instagram fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-google-plus-g fab-results"></i>
+                    </a>
+                    <a href="#" class="icon">
+                        <i class="fab fa-twitter fab-results"></i>
+                    </a>
+                </div>
+                <div class="buttons-wrap">
+                    <div class="quote-wrap">
+                        <a href="#" class="quote">Get a Quote</a>
+                    </div>
+                    <div class="profile-wrap">
+                        <a href="#" class="profile">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Tasks Section-->
+
+</div>
+<button class="collapsible">Tasks</button>
+<div class="content">
+    <div class="card-body">
+        <div class="wrapper-flex">
+            <div class="task-container">
+                <div class='task-banner-img'></div>
+                <img src='@Url.Content("~/images/results/fixed.png")' alt='profile image' class="profile-img">
+                <h3 class="task-name">Fixed Rate</h3>
+                <h3 class="price">$150 AUD</h3>
+                <p class="description">Looking for a local around the fremantle area to paint my child's nursery.
+                    Contact me for more details.</p>
+                <div class="task-buttons-wrap">
+                    <div class="accept-wrap">
+                        <a href="#" class="accept">Accept Request</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <a href="#" class="contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-container">
+                <div class='task-banner-img'></div>
+                <img src='@Url.Content("~/images/results/moneysack.png")' alt='profile image' class="profile-img">
+                <h3 class="task-name">Bounty</h3>
+                <h3 class="price">$200 AUD</h3>
+                <p class="description">Hi, I'm looking for an exterminator to rid my home of pests. Payment is
+                    negotiable, wanted asap! Contact me for more details.</p>
+                <div class="task-buttons-wrap">
+                    <div class="accept-wrap">
+                        <a href="#" class="accept">Accept Request</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <a href="#" class="contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-container">
+                <div class='task-banner-img'></div>
+                <img src='@Url.Content("~/images/results/exchange.jpg")' alt='profile image' class="profile-img">
+                <h3 class="task-name">Tender</h3>
+                <h3 class="price">$$$ AUD</h3>
+                <p class="description">Looking for a babysitting to look after my kids for the evening. Will provide
+                    lots of free food in exchange for it this gig.</p>
+                <div class="task-buttons-wrap">
+                    <div class="accept-wrap">
+                        <a href="#" class="accept">Accept Request</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <a href="#" class="contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-container">
+                <div class='task-banner-img'></div>
+                <img src='@Url.Content("~/images/results/moneysack.png")' alt='profile image' class="profile-img">
+                <h3 class="task-name">Bounty</h3>
+                <h3 class="price">$75 AUD</h3>
+                <p class="description">Anyone looking to make some pocket money? Looking for an artist to draw up my
+                    dreams in detail.</p>
+                <div class="task-buttons-wrap">
+                    <div class="accept-wrap">
+                        <a href="#" class="accept">Accept Request</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <a href="#" class="contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-container">
+                <div class='task-banner-img'></div>
+                <img src='@Url.Content("~/images/results/fixed.png")' alt='profile image' class="profile-img">
+                <h3 class="task-name">Fixed Rate</h3>
+                <h3 class="price">$50 AUD</h3>
+                <p class="description">Could someone wash my car sometime within this week? The pay is non-negotiable.
+                    Also please bring your own equipment, thank you.</p>
+                <div class="task-buttons-wrap">
+                    <div class="accept-wrap">
+                        <a href="#" class="accept">Accept Request</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <a href="#" class="contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-container">
+                <div class='task-banner-img'></div>
+                <img src='@Url.Content("~/images/results/exchange.jpg")' alt='profile image' class="profile-img">
+                <h3 class="task-name">Bounty</h3>
+                <h3 class="price">$400 AUD</h3>
+                <p class="description">Any independent panel beaters? Looking to get my car fixed up for a cheap price.
+                    Price can be negotiated.</p>
+                <div class="task-buttons-wrap">
+                    <div class="accept-wrap">
+                        <a href="#" class="accept">Accept Request</a>
+                    </div>
+                    <div class="contact-wrap">
+                        <a href="#" class="contact">Contact Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script src="~/js/search-results.js"></script>
+<script src="~/js/search-drop.js"></script>
+<script src="~/jquery/adv-search-choices.js"></script>
+<script src="~/jquery/adv-search-choice2.js"></script>

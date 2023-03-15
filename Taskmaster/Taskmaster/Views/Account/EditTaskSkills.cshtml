@@ -1,0 +1,85 @@
+﻿@model Taskmaster.ViewModels.TaskSkillsViewModel
+
+@{
+    ViewData["Title"] = "Edit Task Skills";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="outer-tasks-container">
+    <div class="inner-tasks-container">
+        <div class="th-header">
+            <h1 class="mytasks-header">Task Skill Management</h1>
+        </div>
+
+        <div class="table-container">
+            <div style="float: left; width: 20%; padding: 5px;">
+                <h5>
+                    @Html.DisplayNameFor(model => model.Name)
+                </h5>
+                <p>
+                    @Html.DisplayFor(model => model.Name)
+                </p>
+                <h5>
+                    @Html.DisplayNameFor(model => model.Type)
+                </h5>
+                <p>
+                    @Html.DisplayFor(model => model.Type)
+                </p>
+                <h5>
+                    @Html.DisplayNameFor(model => model.Payment)
+                </h5>
+                <p>
+                    @Html.DisplayFor(model => model.Payment)
+                </p>
+                <h5>
+                    @Html.DisplayNameFor(model => model.Description)
+                </h5>
+                <p>
+                    @Html.DisplayFor(model => model.Description)
+                </p>
+            </div>
+            <table class="table-tasks" id="myTableData" style="width: 75%; float: right;">
+                <tr>
+                    <td colspan="2" style="text-align: left; padding: 20px;">
+                        <form role="form" asp-action="EditTaskSkills">
+                            <h5 style="display: inline">Select Skill: </h5>
+                            <select class="form-control" style="display: inline; width: 50%;" asp-for="SelectedSkillId" asp-items="Model.Categories"></select>
+                            <button type="submit" class="btn-done" style="width: auto; padding: 5px 10px; margin-left: 10px;">Add&nbsp;Skill</button>
+                        </form>
+                        <span asp-validation-for="SelectedSkillId" class="text-danger"></span>
+                        <p><strong>NOTE:</strong> All tasks require at least 1 associated skill.</p>
+                    </td>
+                </tr>
+
+                <tr class="tr-tasks-head">
+                    <th>Skills</th>
+                    <th>&nbsp;</th>
+                </tr>
+
+                @foreach (var skill in Model.Skills.OrderBy(s => s.CategoryName).ThenByDescending(s => s.Name))
+                {
+                    <tr class="tr-tasks">
+                        <td class="tasks-cell" style="text-align: left;">
+                            <h4>@Html.DisplayFor(modelItem => skill.CategoryName): @Html.DisplayFor(modelItem => skill.Name)</h4>
+                            @Html.DisplayFor(modelItem => skill.Description)
+                        </td>
+                        <td class="tr-buttons">
+                            @if (Model.Skills.Count() != 1)
+                            {
+                                <form asp-action="DeleteTaskSkill">
+                                    <input type="hidden" name="ID" value="@Model.ID" />
+                                    <input type="hidden" name="skillID" value="@skill.ID" />
+                                    <button type="submit" class="btn-delete" style="width: auto; padding: 5px;">Delete</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="th-footer"></div>
+    </div>
+</div>

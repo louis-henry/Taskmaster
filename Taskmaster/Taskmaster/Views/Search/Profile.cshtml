@@ -1,0 +1,140 @@
+﻿@model Taskmaster.ViewModels.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/profile-page.css" />
+
+<div class="profile-container">
+    <div class="row gutters-sm">
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <img src="@Url.Content("~/images/admin/user.png")" alt="Admin" class="rounded-circle" width="150">
+                        <div class="mt-3">
+                            <h4>@Html.DisplayFor(modelItem => Model.Name)</h4>
+                            <a href="mailto:@Model.Email" class="btn-outline-primary" id="btn-msgme"
+                                style="padding: 7px;">Message</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <h1 class="profile-descrip-head">About Me</h1>
+                @if (Model.Description != null)
+                {
+                <p class="profile-descrip">@Html.DisplayFor(modelItem => Model.Description)</p>
+                }
+                else
+                {
+                <p class="profile-descrip">Hi there! My name is @Html.DisplayFor(modelItem => Model.Name) and I am
+                    looking
+                    forward to working with you, so contact me through my profile</p>
+                }
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Full Name</h6>
+                        </div>
+
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.Name)
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.Email)
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            Not Available
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Mobile</h6>
+                        </div>
+                        @if(Model.Phone != null)
+                        {
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.Phone)
+                        </div>
+                        }
+                        else
+                        {
+                        <div class="col-sm-9 text-secondary">
+                            Not Available
+                        </div>
+                        }
+                    </div>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Postcode</h6>
+                        </div>
+                        @if(Model.Postcode != null)
+                        {
+                        <div class="col-sm-9 text-secondary">
+                            @Html.DisplayFor(modelItem => Model.Postcode)
+                        </div>
+                        }
+                        else
+                        {
+                        <div class="col-sm-9 text-secondary">
+                            Not Available
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters-sm">
+                <div class="col-sm-12 mb-3">
+                    <div class="card h-100">
+                        <h1 class="profile-descrip-head2">My Skills</h1>
+                        @foreach (var catagories in Model.Categories)
+                        {
+                        <div class="card-body">
+                            <h6 class="d-flex align-items-center mb-3"><i
+                                    class="material-icons text-info mr-2">Catagory: </i>@Html.DisplayFor(modelItem =>
+                                catagories.Name)</h6>
+                            @foreach (var skills in catagories.Skills)
+                            {
+                            <small>@Html.DisplayFor(modelItem => skills.Name)</small>
+                            <div class="progress mb-3" style="height: 5px">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            }
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

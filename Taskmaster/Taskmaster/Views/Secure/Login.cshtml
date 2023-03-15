@@ -1,0 +1,92 @@
+﻿@model Taskmaster.ViewModels.SecureViewModel
+
+@{
+ViewData["Title"] = "Secure Access Required";
+Layout = "~/Views/Shared/_EmptyLayout.cshtml";
+}
+
+
+<div class="login-container">
+    <a href="/Home/Index"><i class="fa fa-arrow-left" aria-hidden="true" id="btn-goback"></i></a>
+    <form id="secure" method="post" class="form-box">
+        <div class="form-group" style="display: none">
+            <div class="checkbox">
+                <label asp-for="Register">
+                    <input id="Register" asp-for="Register" />
+                    @Html.DisplayNameFor(m => m.Register)
+                </label>
+            </div>
+        </div>
+
+        <div class="button-box">
+            <div class="btns" id="login-or-register"></div>
+            <button id="loginBtn" type="button" class="toggle-btn" onclick="login()">Log In</button>
+            <button id="registerBtn" type="button" class="toggle-btn" onclick="register()">Register</button>
+        </div>
+
+        <div asp-validation-summary="All" class="text-danger" style="display: block; padding-left: 50px; font-size: 0.9em;"></div>
+
+        <div id="secureLogin" class="input-group form-log">
+            <input asp-for="LoginEmail" class="input-field" placeholder="Enter Email" />
+            <span asp-validation-for="LoginEmail" class="text-danger"></span>
+            <input asp-for="LoginPassword" class="input-field" placeholder="Enter Password" />
+            <span asp-validation-for="LoginPassword" class="text-danger"></span>
+
+            <div class="checkbox-box">
+                <label asp-for="RememberMe" class="check-tick">
+                    <input asp-for="RememberMe" class="check-box" />
+                    @Html.DisplayNameFor(m => m.RememberMe)
+                </label>
+            </div>
+            <input type="submit" value="Log In" class="submit-btn" />
+            <a asp-action="ForgotPassword" asp-controller="Secure">Forgot Password?</a>
+            <br />
+            <br />
+            <a asp-action="ContactUs" asp-controller="Home">Reactivate Account</a>
+        </div>
+
+        <div id="secureRegister" class="input-group form-reg">
+            <input asp-for="RegisterName" class="input-field" placeholder="Enter Name" />
+            <span asp-validation-for="RegisterName" class="text-danger"></span>
+            <input asp-for="RegisterEmail" class="input-field" placeholder="Enter Email" />
+            <span asp-validation-for="RegisterEmail" class="text-danger"></span>
+            <input asp-for="RegisterPassword" class="input-field" placeholder="Enter Password" />
+            <span asp-validation-for="RegisterPassword" class="text-danger"></span>
+            <input asp-for="RegisterPasswordConfirm" class="input-field" placeholder="Re-Enter Password" />
+            <span asp-validation-for="RegisterPasswordConfirm" class="text-danger"></span>
+            <div class="checkbox-box">
+                <label asp-for="TermsConditions" class="check-tick" style="bottom: 78px">
+                    <input asp-for="TermsConditions" class="check-box" />
+                    <a asp-action="Terms" asp-controller="Footer">@Html.DisplayNameFor(m => m.TermsConditions)</a>
+                </label>
+            </div>
+            <div class="help-btn"><button type="button" onclick="toggleHelp()"><i class="fa fa-question-circle" aria-hidden="true"></i></button></div>
+            <input type="submit" value="Register" class="submit-btn" />
+        </div>
+    </form>
+    <div class="form-help-box" id="form-help-box">
+        <p> - Passwords must be at least 6 letters. </p><br />
+        <p> - Passwords must contain 1 capital letter. </p><br />
+        <p> - Passwords must contain 1 character. </p>
+    </div>
+    <script src="~/lib/login-register.js"></script>
+</div>
+
+<script>
+    window.onload = function () {
+        var x = document.getElementById("secureLogin");
+        var y = document.getElementById("secureRegister");
+        var z = document.getElementById("login-or-register");
+        var checkbox = document.getElementById("Register");
+
+        if (checkbox.checked) {
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        } else {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+        }
+    }
+</script>

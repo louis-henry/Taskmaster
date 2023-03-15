@@ -1,0 +1,64 @@
+﻿@model Taskmaster.ViewModels.SkillManagementViewModel
+
+@{
+    ViewData["Title"] = "Customer Skills";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<h1 class="action">Skills</h1>
+
+<div class="user-profile-edit">
+    <div class="col-md-9 personal-info">
+        <h3>Your Skills</h3>
+        <form class="form-horizontal" role="form" asp-action="Skills">
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Select Skill: </label>
+                <div class="col-lg-10" style="display: flex">
+                    <div class="col-md-8 ui-select">
+                        <select class="form-control" asp-for="ID" asp-items="Model.Categories"></select>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="submit" class="btn btn-primary" value="Add Skill">
+                    </div>
+                </div>
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <div class="content">
+            <table id="table_standard_skills" class="table table-striped table-advance table-hover">
+                <thead>
+                    <tr>
+                        <th id="table-heading">
+                            Skill
+                        </th>
+                        <th id="table-heading-admin">
+                            Administration
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var skill in Model.Skills.OrderBy(s => s.CategoryName).ThenByDescending(s => s.Name))
+                    {
+                        <tr>
+                            <td style="text-align: left;">
+                                <strong>@Html.DisplayFor(modelItem => skill.CategoryName):</strong> @Html.DisplayFor(modelItem => skill.Name)
+                                <br />
+                                @Html.DisplayFor(modelItem => skill.Description)
+                            </td>
+                            <td>
+                                <a class="delete" asp-action="DeleteSkill" asp-route-id="@skill.ID" title="Delete">Delete&nbsp;<i class='fas fa-trash'></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--script src="js/scripts.js"></!-script-->

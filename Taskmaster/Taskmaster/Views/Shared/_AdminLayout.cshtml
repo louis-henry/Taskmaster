@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Taskmaster</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/admin.css" />
+    <link href="~/css/admin-responsive.css" rel="stylesheet">
+
+    <!-- Pre-defined bootstrap/jquery -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/jquery.scrollTo.min.js"></script>
+</head>
+<body>
+<section id="container">
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a asp-controller="Home" asp-action="Index" class="logo"><img src="@Url.Content("~/images/taskmaster-logo.png")" width="80" height="40"></a>
+            <!--logo end-->
+
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" asp-action="Logout" asp-controller="Secure" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href=""><img src="@Url.Content("~/images/admin/admin.png")" class="img-circle" width="80"></a></p>
+                    <h5 class="centered" style="font-size: 14px">Administrator</h5>
+                    <li class="mt">
+                        <a asp-area="" asp-controller="Admin" asp-action="Index">
+                            <i class="fa fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-tasks"></i>
+                            <span>Accounts</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Users">Management</a></li>
+                            <li><a asp-area="" asp-controller="Admin" asp-action="Skills">Skills Management</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class=" fa fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a asp-area="" asp-controller="Admin" asp-action="AnalyticTaskCurrent">Current Tasks</a></li>
+                        </ul>
+                    </li>
+                    <li class="mt" id="back-btn">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fa fa-angle-double-left"></i>
+                            <span>Go Back</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+
+            </div>
+        </aside>
+        <!--sidebar end-->
+
+        <!--main content start-->
+        <section id="main-content">
+            @RenderBody()
+        </section>
+        <!--main content end-->
+
+    <!-- For the graph bars -->
+    <script src="~/lib/jquery.nicescroll.js" type="text/javascript"></script>
+    <!-- For the accordion left nav menu -->
+    <script class="include" type="text/javascript" src="~/lib/jquery.dcjqaccordion.2.7.js"></script>
+    <!--Scripts for this page-->
+    <script src="~/lib/common-scripts.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+    <ul class="navbar-nav">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <a class="nav-link-text" asp-controller="Account" asp-action="Tasks">My Tasks</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link-text" asp-controller="User" asp-action="Skills">My Account</a>
+            </li>
+            @if (await UserManager.IsInRoleAsync(await UserManager.GetUserAsync(User), "Admin"))
+            {
+            <li class="nav-item">
+                <a class="nav-link-text" asp-controller="Admin" asp-action="Index">Admin</a>
+            </li>
+            }
+            <li class="nav-item">
+                <form class="form-inline" asp-action="Logout" asp-controller="Secure" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link-text logout-btn">Logout</button>
+                </form>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item">
+                <a class="nav-link-text" asp-action="Login" asp-controller="Secure">Login / Register</a>
+            </li>
+        }
+    </ul>

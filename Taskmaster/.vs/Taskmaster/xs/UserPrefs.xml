@@ -1,0 +1,62 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{1A9288F9-5A59-4BB4-B3C4-B8CD21C3306F}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Taskmaster/wwwroot/js/search-results.js" Line="1" Column="1" IsPinned="True" />
+      <File FileName="Taskmaster/wwwroot/js/addtask-1.js" />
+      <File FileName="Taskmaster/Views/Search/Index.cshtml" Line="66" Column="21" />
+      <File FileName="Taskmaster/Views/Search/Task.cshtml" />
+      <File FileName="Taskmaster/Views/Search/Results.cshtml" Line="58" Column="37" />
+      <File FileName="Taskmaster/Shared/PresenceLevel.cs" />
+      <File FileName="Taskmaster/Controllers/AdminController.cs" />
+      <File FileName="Taskmaster/Controllers/SearchController.cs" Line="124" Column="1" />
+      <File FileName="Taskmaster/Models/Task.cs" Line="27" Column="49" />
+      <File FileName="Taskmaster/Views/Search/Profile.cshtml" />
+      <File FileName="Taskmaster/Views/Account/Profile.cshtml" Line="66" Column="11" />
+      <File FileName="Taskmaster/Views/Shared/_UserLayout.cshtml" />
+      <File FileName="Taskmaster/Program.cs" Line="16" Column="1" />
+      <File FileName="Taskmaster/Shared/TaskType.cs" Line="1" Column="1" />
+      <File FileName="Taskmaster/Models/User.cs" Line="42" Column="40" />
+      <File FileName="Taskmaster/Views/Account/AddTask.cshtml" Line="1" Column="1" />
+      <File FileName="Taskmaster/Controllers/AccountController.cs" Line="147" Column="34" />
+      <File FileName="Taskmaster/Models/SkillTaskPair.cs" Line="11" Column="35" />
+      <File FileName="Taskmaster/Models/SkillUserPair.cs" Line="1" Column="1" />
+      <File FileName="Taskmaster/Models/Skill.cs" Line="17" Column="29" />
+      <File FileName="Taskmaster/Views/Account/EditTaskSkills.cshtml" Line="1" Column="1" />
+      <File FileName="Taskmaster/Views/User/Skills.cshtml" Line="19" Column="94" />
+      <File FileName="Taskmaster/Shared/SearchType.cs" Line="1" Column="1" />
+      <File FileName="Taskmaster/Views/User/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Taskmaster/ViewModels/SkillViewModel.cs" Line="1" Column="1" />
+      <File FileName="Taskmaster/ViewModels/TaskSkillsViewModel.cs" Line="1" Column="1" />
+      <File FileName="Taskmaster/Controllers/SecureController.cs" Line="1" Column="1" />
+      <File FileName="Taskmaster/Controllers/UserController.cs" Line="112" Column="16" />
+      <File FileName="Taskmaster/ViewModels/SkillManagementViewModel.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Taskmaster" expanded="True">
+            <Node name="Taskmaster" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="UserController.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+                <Node name="Search" expanded="True" />
+                <Node name="User" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Taskmaster PreferredExecutionTarget="/Applications/Safari.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

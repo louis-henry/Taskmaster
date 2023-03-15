@@ -1,0 +1,87 @@
+﻿@model Taskmaster.ViewModels.SearchViewModel
+
+@{
+    ViewData["Title"] = "Advanced Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/adv-search.css" />
+<div class="search-page-container">
+    <div class="adv-search-container">
+        <form method="get" action="~/Search/Results">
+            <div class="inner-form">
+                <div class="basic-search">
+                    <div class="input-field">
+                        <div class="icon-wrap">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input id="search" name="term" class="search-input" type="text" placeholder="Search..." />
+                        <div class="result-count">
+                            <a href="" id="advanced-search-button">Advanced</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="advance-search" id="advanced-search-area">
+                    <span class="desc">Advanced Search</span>
+                    <div class="row">
+                        <div class="input-field">
+                            <div class="input-select">
+                                <select data-trigger="" name="_presenceLevel">
+                                    <option placeholder="" value="">LOCATION</option>
+                                    <option>Home</option>
+                                    <option>Away</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <select data-trigger="" name="_taskType">
+                                    <option placeholder="" value="">TYPE</option>
+                                    <option>Fixed</option>
+                                    <option>Tender</option>
+                                    <option>Bounty</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <select data-trigger="" name="_category">
+                                    <option placeholder="">CATEGORY</option>
+                                    @foreach (var category in Model.Categories)
+                                    {
+                                        <option value="@category.Value">@Html.DisplayFor(modelItem => category.Key)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row second">
+                        <div class="input-field">
+                            <div class="input-select">
+                                <input name="startDate" id="adv-s-min" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="START DATE" />
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <input name="endDate" id="adv-s-max" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="END DATE" />
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <input id="adv-s-pcode" name="postCode" type="number" min="0000" max="9999" placeholder="POSTCODE" pattern="/^(?:(?:[2-8]\d|9[0-7]|0?[28]|0?9(?=09))(?:\d{2}))$/" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row third">
+                        <div class="input-field">
+                            <button class="btn-search">Search</button>
+                            <button class="btn-delete" id="delete">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="~/jquery/adv-search-choices2.js"></script>
+<script src="~/jquery/adv-search-choices.js"></script>

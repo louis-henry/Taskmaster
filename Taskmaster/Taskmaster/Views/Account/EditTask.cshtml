@@ -1,0 +1,132 @@
+﻿@model Taskmaster.ViewModels.TaskViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+ <div class="addtask-container">
+            <form name="taskForm" class="addtask-form" action="" method="post">
+                <div class="addtask-section" style="height: 4%"></div>
+
+                <!--Presence-->
+                <div class="addtask-section" style="height: 12%; width: 75%">
+                    <button type="button" class="addtask-where-btn" id="btn-home" onclick="selectHome()">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <p>Task from home</p>
+                    </button>
+                    <button type="button" class="addtask-where-btn" id="btn-travel" onclick="selectTravel()">
+                        <i class="fa fa-car" aria-hidden="true"></i>
+                        <p>Task requires travel</p>
+                    </button>
+                    <input asp-for="PresenceLevel" type="hidden" id="form-locationi" />
+                </div>
+                <!--Error Check for Presence-->
+                <span asp-validation-for="PresenceLevel" class="text-danger"></span>
+
+                <!--Type-->
+                <div class="addtask-section" style="height: 7%; width: 75%">
+                    <button type="button" class="addtask-type-btn" id="btn-flat" onclick="selectFlat()">
+                        <i class="fa fa-dollar-sign" aria-hidden="true"></i>
+                        <p>Flat Price</p>
+                    </button>
+                    <button type="button" class="addtask-type-btn" id="btn-tender" onclick="selectTender()">
+                        <i class="fa fa-exchange-alt" aria-hidden="true"></i>
+                        <p>Tender</p>
+                    </button>
+                    <button type="button" class="addtask-type-btn" id="btn-bounty" onclick="selectBounty()">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <p>Bounty</p>
+                    </button>
+                    <input asp-for="Type" type="hidden" id="form-typei" />
+                </div>
+
+                <!--Error Check for Type-->
+                <span asp-validation-for="Type" class="text-danger"></span>
+
+                <!--Start Date-->
+                <div class="addtask-section" style="height: 4%">
+                    <div class="addtask-icon">
+                        <i class="fa fa-calendar-alt" aria-hidden="true" style="text-align: center"></i>
+                    </div>
+                    <div class="addtask-input">
+                        <input asp-for="StartDate" placeholder="Enter date to be started by" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="form-datei" />
+                    </div>
+                </div>
+
+                <!--Error Check for Start Date-->
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+
+                <!--End Date-->
+                <div class="addtask-section" style="height: 4%">
+                    <div class="addtask-icon">
+                        <i class="fa fa-calendar-alt" aria-hidden="true" style="text-align: center"></i>
+                    </div>
+                    <div class="addtask-input">
+                        <input asp-for="EndDate" placeholder="Enter date to be completed by" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="form-datei" />
+                    </div>
+                </div>
+
+                <!--Error Check for End Date-->
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+
+                <!--Location-->
+                <div class="addtask-section" style="height: 4%">
+                    <div class="addtask-icon">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    </div>
+                    <div class="addtask-input" id="form-pc">
+                        <input asp-for="Postcode" type="text" placeholder="Enter postcode here (if applicable)" id="form-pci" pattern="^(0[289][0-9]{2})|([1345689][0-9]{3})|(2[0-8][0-9]{2})|(290[0-9])|(291[0-4])|(7[0-4][0-9]{2})|(7[8-9][0-9]{2})$" oninvalid="this.setCustomValidity('Postcode must be a legitimate Australian address')" oninput="setCustomValidity('')" />
+                    </div>
+                </div>
+
+                <!--Error Check for Location-->
+                <span asp-validation-for="Postcode" class="text-danger"></span>
+
+                <!--Price-->
+                <div class="addtask-section" style="height: 4%">
+                    <div class="addtask-icon">
+                        <i class="fa fa-dollar-sign" aria-hidden="true"></i>
+                    </div>
+                    <div class="addtask-input" id="form-cost">
+                        <input asp-for="Payment" type="number" min="0" max="1000000" step="1" placeholder="Enter the cost (in whole dollars) for this task (if applicable)" id="form-costi" />
+                    </div>
+                </div>
+
+                <!--Error Check for Price-->
+                <span asp-validation-for="Payment" class="text-danger"></span>
+
+                <!--Title/Name-->
+                <div class="addtask-section" style="height: 4%">
+                    <div class="addtask-icon">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    </div>
+                    <div class="addtask-input">
+                        <input asp-for="Name" type="text" id="form-titlei" placeholder="Enter the title of your task"  maxlength="30" oninvalid="this.setCustomValidity('A title is required for every task')" oninput="setCustomValidity('')" required />
+                    </div>
+                </div>
+
+                <!--Error Check for Title/Name-->
+                <span asp-validation-for="Name" class="text-danger"></span>
+
+                <!--Descrip-->
+                <div class="addtask-section" style="height: 20%">
+                    <div class="addtask-icon">
+                        <i class="fa fa-comment-dots" aria-hidden="true"></i>
+                    </div>
+                    <div class="addtask-input">
+                        <textarea asp-for="Description" type="textarea" id="form-descripi" placeholder="Enter description here..." oninvalid="this.setCustomValidity('A description is required for every task')" oninput="setCustomValidity('')" required></textarea>
+                    </div>
+                </div>
+
+                <!--Error Check for Descrip-->
+                <span asp-validation-for="Description" class="text-danger"></span>
+
+                <!--Submit/Reset-->
+                <div class="addtask-section" style="height: 4%; width: 75%">
+                    <button name="submit" type="submit" class="addtask-update-btn" id="at-update">Update</button>
+                </div>
+
+
+            </form>
+        </div>
+        <script src="~/js/addtask-1.js"></script>
+        <script src="~/js/addtask-2.js"></script>

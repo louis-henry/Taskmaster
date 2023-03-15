@@ -1,0 +1,245 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+} 
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  /*margin-bottom: 60px;*/
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/* Login/Register page Styling
+-------------------------------------------------- */
+.login-container {
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/login/banner.jpg");
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+
+.login-container .form-box {
+    width: 380px;
+    height: 500px;
+    position: relative;
+    margin: 2% auto;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+    opacity: 0.95;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+.login-container .form-box .button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    border-radius: 10px;
+    background: rgba(150, 150, 150, 0.8);
+}
+
+.login-container .form-box .button-box .toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    color: white;
+}
+
+.login-container .form-box .button-box .btns {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, #26e1fa, #3230c3);
+    /*background: #fca311;*/
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+.login-container .form-box .social-icons {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.login-container .form-box .social-icons img {
+    width: 30px;
+    margin: 0 12px;
+    box-shadow: 0 0 20px 0 #7f7f7f3d;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.login-container .form-box .input-group {
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+}
+
+.login-container .form-box .input-group .input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    outline: none;
+    background: transparent;
+    color: white;
+}
+
+.login-container .form-box .input-group .input-field::placeholder,
+.login-container .form-box .input-group .check-tick {
+    color: rgb(214, 214, 214);
+}
+
+.login-container .form-box .input-group .submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: 40px auto;
+    background: linear-gradient(to right, #26e1fa, #3230c3);
+    border: 0;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+}
+
+.login-container .form-box .input-group .check-box {
+    margin: 30px 10px 30px 0;
+}
+
+.login-container .form-box .input-group .check-tick {
+    color: #777;
+    font-size: 12px;
+    bottom: 108px;
+    position: absolute;
+}
+.login-container .form-box .input-group checkbox-box {
+    position: relative;
+    top: 10px;
+}
+.login-container .form-box .form-log {
+    left: 50px;
+}
+
+.login-container .form-box .form-reg {
+    left: 450px;
+}
+.login-container .form-box .text-danger {
+    color: red;
+}
+.login-container .form-help-box {
+    width: 380px;
+    height: 85px;
+    position: relative;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2px;
+    overflow: hidden;
+    opacity: 0.95;
+    background-color: rgb(0, 0, 0, 0.8);
+    border-radius: 10px;
+    visibility: hidden;
+    text-align: center;
+}
+.login-container .form-help-box p {
+    color: rgb(214, 214, 214);
+}
+.login-container .form-box .input-group .help-btn {
+    text-align: right
+}
+.login-container .form-box .input-group .help-btn button {
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+.forgot-password-layout {
+    color: white;
+    display: flex;
+    margin: 0 auto;
+}
+.forgot-confirmation {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+#btn-goback {
+    color: white;
+    font-size: 44px;
+    opacity: 0.5;
+    margin: 20px 20px;
+}

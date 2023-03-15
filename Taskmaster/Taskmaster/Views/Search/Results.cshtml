@@ -1,0 +1,218 @@
+﻿@model Taskmaster.ViewModels.SearchViewModel
+
+@{
+    ViewData["Title"] = "Search Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/site-results.css" />
+<link rel="stylesheet" href="~/css/adv-search.css" />
+
+<div class="search-page-container">
+    <div class="adv-search-container">
+        <form method="get" action="~/Search/Results">
+            <div class="inner-form">
+                <div class="basic-search">
+                    <div class="input-field">
+                        <div class="icon-wrap">
+                            <i class="fa fa-search"></i>
+                        </div>
+                        <input id="search" name="term" class="search-input" type="text" placeholder="Search..." />
+                        <div class="result-count">
+                            <a href="" id="advanced-search-button">Advanced</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="advance-search" id="advanced-search-area">
+                    <span class="desc">Advanced Search</span>
+                    <div class="row">
+                        <div class="input-field">
+                            <div class="input-select">
+                                <select data-trigger="" name="_presenceLevel">
+                                    <option placeholder="" value="">LOCATION</option>
+                                    <option>Home</option>
+                                    <option>Away</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <select data-trigger="" name="_taskType">
+                                    <option placeholder="" value="">TYPE</option>
+                                    <option>Fixed</option>
+                                    <option>Tender</option>
+                                    <option>Bounty</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <select data-trigger="" name="_category">
+                                    <option placeholder="">CATEGORY</option>
+                                    @foreach (var category in Model.Categories)
+                                    {
+                                        <option value="@category.Value">@Html.DisplayFor(modelItem => category.Key)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row second">
+                        <div class="input-field">
+                            <div class="input-select">
+                                <input name="startDate" id="adv-s-min" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="START DATE" />
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <input name="endDate" id="adv-s-max" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="END DATE" />
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <div class="input-select">
+                                <input id="adv-s-pcode" name="postCode" type="number" min="0000" max="9999" placeholder="POSTCODE" pattern="/^(?:(?:[2-8]\d|9[0-7]|0?[28]|0?9(?=09))(?:\d{2}))$/" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row third">
+                        <div class="input-field">
+                            <button class="btn-search">Search</button>
+                            <button class="btn-delete" id="delete">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="~/jquery/adv-search-choices2.js"></script>
+    <script src="~/jquery/adv-search-choices.js"></script>
+
+    <div class="collapse-container">
+        @if (Model.Profiles > 0)
+        {
+            <button class="collapsible">Profiles</button>
+            <div class="content">
+                <div class="card-profile-body">
+                    <div class="wrapper-flex">
+                        @foreach (var result in Model.Results)
+                        {
+                            @if (result.Type == ResultType.Profile)
+                            {
+                                <div class="people-container">
+                                    <div class='banner-img'></div>
+                                    <img src="@Url.Content(result.ImagePath)" alt='profile image' class="profile-img">
+                                    <h3 class="name">@Html.DisplayFor(modelItem => result.Title)</h3>
+                                    <h3 class="sub-name">@Html.DisplayFor(modelItem => result.Email)</h3>
+                                    @if (result.Description != null)
+                                    {
+                                        <p class="description">@Html.DisplayFor(modelItem => result.Description)</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="description">No description available</p>
+                                    }
+                                    <div class="icons-container">
+                                        <a href="" class="icon">
+                                            <i class="fab fa-facebook fab-results"></i>
+                                        </a>
+                                        <a href="" class="icon">
+                                            <i class="fab fa-instagram fab-results"></i>
+                                        </a>
+                                        <a href="" class="icon">
+                                            <i class="fab fa-google-plus-g fab-results"></i>
+                                        </a>
+                                        <a href="" class="icon">
+                                            <i class="fab fa-twitter fab-results"></i>
+                                        </a>
+                                    </div>
+                                    <div class="buttons-wrap">
+                                        <div class="profile-wrap">
+                                            <a class="profile" asp-action="Profile" asp-route-id="@result.Id">View Profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+
+        <!--Tasks Section-->
+        @if (Model.Tasks > 0)
+        {
+            <button class="collapsible">Tasks</button>
+            <div class="content">
+                <div class="card-body">
+                    <div class="wrapper-flex">
+                        @foreach (var result in Model.Results)
+                        {
+                            @if (result.Type != ResultType.Profile)
+                            {
+                                if (result.Type == ResultType.Fixed)
+                                {
+                                    <div class="task-container">
+                                        <div class='task-banner-img'></div>
+                                        <img src='@Url.Content("~/images/results/fixed.png")' alt='profile image' class="profile-img">
+                                        <h3 class="task-name">@Html.DisplayFor(modelItem => result.Title)</h3>
+                                        <h3 class="price">@Html.DisplayFor(modelItem => result.Price) AUD</h3>
+                                        <div class="task-buttons-wrap">
+                                            <div class="accept-wrap">
+                                                <a class="accept" asp-action="Task" asp-route-id="@result.Id">View Task</a>
+                                            </div>
+                                            <div class="contact-wrap">
+                                                <a href="mailto:@result.Email" class="contact">Contact Me</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                if (result.Type == ResultType.Tender)
+                                {
+                                    <div class="task-container">
+                                        <div class='task-banner-img'></div>
+                                        <img src='@Url.Content("~/images/results/exchange.jpg")' alt='profile image' class="profile-img">
+                                        <h3 class="task-name">@Html.DisplayFor(modelItem => result.Title)</h3>
+                                        <h3 class="price">@Html.DisplayFor(modelItem => result.Price) AUD</h3>
+                                        <div class="task-buttons-wrap">
+                                            <div class="accept-wrap">
+                                                <a class="accept" asp-action="Task" asp-route-id="@result.Id">View Task</a>
+                                            </div>
+                                            <div class="contact-wrap">
+                                                <a href="mailto:@result.Email" class="contact">Contact Me</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                if (result.Type == ResultType.Bounty)
+                                {
+                                    <div class="task-container">
+                                        <div class='task-banner-img'></div>
+                                        <img src='@Url.Content("~/images/results/moneysack.png")' alt='profile image' class="profile-img">
+                                        <h3 class="task-name">@Html.DisplayFor(modelItem => result.Title)</h3>
+                                        <h3 class="price">@Html.DisplayFor(modelItem => result.Price) AUD</h3>
+                                        <div class="task-buttons-wrap">
+                                            <div class="accept-wrap">
+                                                <a class="accept" asp-action="Task" asp-route-id="@result.Id">View Task</a>
+                                            </div>
+                                            <div class="contact-wrap">
+                                                <a href="mailto:@result.Email" class="contact">Contact Me</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+        @if (Model.Profiles == 0 && Model.Tasks == 0)
+        {
+            <h1 style="color: white; text-align: center">No Results Found...</h1>
+        }
+    </div>
+</div>
+<script src="~/js/search-results.js"></script>
+<script src="~/js/search-drop.js"></script>

@@ -1,0 +1,66 @@
+﻿@model Taskmaster.ViewModels.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1 class="action">User Profile</h1>
+
+<div class="user-profile-edit">
+    <div class="col-md-9 personal-info">
+        <h3>Personal info</h3>
+
+        <form id="account" class="form-horizontal" role="form" method="post">
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Name: </label>
+                <div class="col-lg-8">
+                    <input asp-for="Name" class="form-control" type="text">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Email: </label>
+                <div class="col-lg-8">
+                    <input asp-for="Email" class="form-control" type="text" disabled="disabled">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Postcode (optional): </label>
+                <div class="col-lg-8">
+                    <input asp-for="Postcode" class="form-control" />
+                    <span asp-validation-for="Postcode" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 control-label">Phone (optional): </label>
+                <div class="col-lg-8">
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label class="col-md-3 control-label">Description:</label>
+                    <div class="col-md-8">
+                        <textarea asp-for="Description" id="profile-descrip-update" class="form-control" type="text"></textarea>
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+            </div>
+            <div class="from-group">
+                <div class="col-lg-8">
+                    <label asp-for="PublicProfile"></label>
+                    <input type="checkbox" asp-for="PublicProfile" />
+                </div>
+            </div>
+            <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input type="submit" class="btn btn-warning" value="Update">
+                        <span></span>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>

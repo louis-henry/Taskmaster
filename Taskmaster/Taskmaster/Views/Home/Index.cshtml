@@ -1,0 +1,133 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/adv-search.css" />
+    <div class="home-container">
+        <section class="jumbotron text-center">
+            <div class="jumbotron-container">
+                <h1>Find your next <span>tutor.</span></h1>
+                <h1>Find your next <span>handyman.</span></h1>
+                <h1>Find your next <span>logo designer.</span></h1>
+                <h1>Find your next <span>anything.</span></h1>             
+                <div class="adv-search-container">
+                  <form method="get" action="~/Search/Results">
+                    <div class="inner-form">
+                      <div class="basic-search">
+                        <div class="input-field">
+                          <div class="icon-wrap">
+                            <i class="fa fa-search"></i>
+                          </div>
+                          <input id="search" name="term" class="search-input" type="text" placeholder="Search..." />                         
+                    </div>
+                  </form>
+                
+            </div>
+            </div>
+        </section>
+
+        <div class="intro-stat-section">
+            <div class="card-group">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tasks available in the system:</h5>
+                        <p class="card-numeric">@ViewBag.TasksNumber</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tasks completed by our users:</h5>
+                        <p class="card-numeric">@ViewBag.TasksComplete</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Mastering the art of the match</h5>
+                        <p class="card-text">
+                            TaskMaster is about creating connections and streamlining the task search and
+                            hiring process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="featured-categories">
+            <h2>Featured Task Categories</h2>
+            <p>Click below to discover some of our most popular categories</p>
+            <div class="card-deck">
+                <div class="card">
+                    <a href="@Url.Content("~/search/results?_category=13")">
+                        <img class="card-img-top" src="@Url.Content("~/images/home/design-illustration.jpg")" alt="Hand illustration">
+                        <div class="card-footer">
+                            <h4>Artist</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="@Url.Content("~/search/results?_category=2")">
+                        <img class="card-img-top" src="@Url.Content("~/images/home/programming.jpg")" alt="Computer programming">
+                        <div class="card-footer">
+                            <h4>Programming</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="@Url.Content("~/search/results?_category=14")">
+                        <img class="card-img-top" src="@Url.Content("~/images/home/repair.jpg")" alt="Person using power tool">
+                        <div class="card-footer">
+                            <h4>Tradesman</h4>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="@Url.Content("~/search/results?_category=15")">
+                        <img class="card-img-top" src="@Url.Content("~/images/home/writing.jpg")" alt="Hand writing">
+                        <div class="card-footer">
+                            <h4>Design</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="how-section">
+            <h2>How it Works</h2>
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-body">
+                        <h6>Searching</h6>
+                        <p>We welcome anyone and everyone to Taskmaster. Browse our vast range of tasks and profiles to find your perfect match!</p>
+                    </div>
+                </div>
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-body">
+                        <h6>Register</h6>
+                        <p>To unlock the full potential of Taskmaster, register a free account via the sign up menu. This will allow users to post their very own tasks.</p>
+                    </div>
+                </div>
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-body">
+                        <h6>Post</h6>
+                        <p>Set your task requirements and conditions and send it out to the world.</p>
+                    </div>
+                </div>
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-body">
+                        <h6>Connect</h6>
+                        <p>
+                            Connect with users and field their offers. Find the person most compatible to
+                            complete your task.
+                        </p>
+                    </div>
+                </div>
+                <div class="card mb-2 shadow-sm">
+                    <div class="card-body">
+                        <h6>Repeat!</h6>
+                        <p>Taskmaster saves users time, money and effort. Remember us for next time!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

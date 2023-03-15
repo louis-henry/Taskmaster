@@ -1,0 +1,67 @@
+﻿@model Taskmaster.ViewModels.AnalyticsViewModel
+@{
+    ViewData["Title"] = "Current Tasks";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="wrapper">
+    <h3>Current Task Analytics</h3>
+    <div class="tab-pane" id="chartjs">
+        <div class="row mt">
+            <!-- By Catagory Graph (Current/12 Months) -->
+            <div class="col-lg-4" style="min-width: 410px;">
+                <div class="content-panel" style="min-height: 650px; min-width: 400px;">
+                    <h4>By Price</h4>
+                    <div class="panel-body text-center">
+                        <canvas id="doughnut1" height="375" width="400"></canvas>
+                    </div>
+                    <input id="pie0-100" type="hidden" value="500">
+                    @foreach (var task in Model.TasksPerPaymentRange)
+                    {
+                        <h4 style="color: @task.color">@task.title = @task.value%</h4>
+                    }
+                </div>
+            </div>
+            <!-- By Type Graph (Current/12 Months) -->
+            <div class="col-lg-4" style="min-width: 410px;">
+                <div class="content-panel" style="min-height: 650px; min-width: 400px;">
+                    <h4>By Type</h4>
+                    <div class="panel-body text-center">
+                        <canvas id="doughnut2" height="375" width="400"></canvas>
+                    </div>
+                    @foreach (var task in Model.TaskPerType)
+                    {
+                        <h4 style="color: @task.color">@task.title = @task.value%</h4>
+                    }
+                </div>
+            </div>
+            <!-- By Amount Graph (Current/12 Months) -->
+            <div class="col-lg-4" style="min-width: 410px;">
+                <div class="content-panel" style="min-height: 650px; min-width: 400px;">
+                    <h4>By Travel</h4>
+                    <div class="panel-body text-center">
+                        <canvas id="doughnut3" height="375" width="400"></canvas>
+                    </div>
+                    @foreach (var task in Model.TasksPerPresence)
+                    {
+                        <h4 style="color: @task.color">@task.title = @task.value%</h4>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--For the Graphs -->
+    <script src="~/lib/chart-load/Chart.js"></script>
+    <script>
+        var Script = function () {
+            var doughnutCatagory = @Html.Raw(Model.TasksPerPaymentRangeJson);
+            var doughnutType = @Html.Raw(Model.TaskPerTypeJson);
+            var doughnutAmount = @Html.Raw(Model.TasksPerPresenceJson);
+
+            new Chart(document.getElementById("doughnut1").getContext("2d")).Doughnut(doughnutCatagory);
+            new Chart(document.getElementById("doughnut2").getContext("2d")).Doughnut(doughnutType);
+            new Chart(document.getElementById("doughnut3").getContext("2d")).Doughnut(doughnutAmount);
+        }();
+    </script>
+</section>

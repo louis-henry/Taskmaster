@@ -1,0 +1,89 @@
+﻿
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/* Hero */
+.jumbotron {
+    background-color: #0C3F75;
+    min-height: 90vh;
+}
+
+.home-container .container .row h1 {
+    font-family: brandon-grotesque, sans-serif;
+    font-weight: 500;
+    font-size: 45px;
+    letter-spacing: 10px;
+    color: #FFF;
+    margin-top: 70px;
+}
+
+.tagline {
+    font-weight: 300;
+    font-size: 20px;
+    font-style: italic;
+    letter-spacing: 3px;
+    color: #F5F5F5;
+    opacity: 0.70;
+    margin-bottom: 50px;
+}
+
+.input-group {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    margin-bottom: 70px !important;
+}
+
+
+
+/* Intro information */
+
+.home-container .container h3 {
+    font-weight: 400;
+    font-size: 20px;
+    color: #0C3F75;
+    padding-bottom: 30px;
+    padding: 15px;
+}
+
+.home-container .container p {
+    color: #000;
+    font-weight: 300;
+    font-size: 15px;
+    text-align: left;
+    padding-top: 3px;
+    padding-right: 15px;
+    padding-left: 45px;
+    line-height: 25px;
+}
+
+.task-counter {
+    color: #E0DFDF;
+    font-weight: 700;
+    font-size: 60px;
+    margin-top: 30px;
+}
+
+
+/* Featured task categories */
+
+.home-container .container h2 {
+    color: #3E3E3E;
+    font-weight: 400;
+    font-size: 25px;
+    padding: 15px;
+}
+
+.home-container .container img {
+    background-color: #0C3F75;
+    padding: 50px;
+    margin-top: 20px;
+}
+
+.home-container .container h4 {
+    color: #000;
+    font-weight: 300;
+    font-size: 17px;
+    padding-top: 9px;
+}

@@ -1,0 +1,274 @@
+﻿/* Import fonts */
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
+
+body {
+    background: linear-gradient(to bottom, #0066cc 0%, #99ccff 100%);
+}
+
+.layout {
+    background: white
+}
+
+/* ---- START PAGE - LOGO ----*/
+
+a.logo-start {
+    font-size: 24px;
+    color: #f2f2f2;
+    float: left;
+    margin-top: 25px;
+    text-transform: uppercase;
+    padding-left: 30px;
+    padding-bottom: 30px;
+}
+
+/* ---- START PAGE - USER DASHBOARD ----*/
+
+.dash {
+    margin-left: 80px;
+}
+
+.skills {
+    margin-left: 280px;
+}
+
+.profile {
+    margin-left: 480px;
+}
+
+.search {
+    margin-left: 680px;
+}
+
+.tasks {
+    margin-top: 300px;
+    margin-left: 72px;
+}
+
+.pass {
+    margin-top: 300px;
+    margin-left: 272px;
+}
+
+.deactivate {
+    margin-top: 300px;
+    margin-left: 472px;
+}
+
+.logout {
+    margin-top: 300px;
+    margin-left: 688px;
+}
+
+/* ---- START PAGE - TITLE ----*/
+
+h1.dashboard {
+    color: #f2f2f2;
+    font-size: 90px;
+    padding-left: 400px;
+    margin-top: 50px;
+}
+
+a.logo {
+    font-size: 24px;
+    color: #f2f2f2;
+    float: left;
+    margin-top: 25px;
+    text-transform: uppercase;
+    padding-top: 50px;
+    padding-left: 70px;
+    padding-bottom: 30px;
+}
+
+h1.action {
+    background: #4d94ff; 
+    font-size: 50px;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+h2.profile {
+    color: black;
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+h3.profile {
+    color: black;
+    font-size: 40px;
+    margin-left: 350px;
+    margin-top: 50px;
+}
+
+
+
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Side bar */
+/* Left navigation */
+
+.sidenav {
+    margin-top: 0px;
+    height: 100%;
+    width: 210px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #4d94ff; 
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+
+.row {
+    margin-left: 210px;
+}
+
+.button {
+    padding-top:10px;
+    display: block;
+}
+
+.left-nav-btn {
+    background-color: #0066ff;
+    color: #f2f2f2;
+    width: 150px;
+    height: 50px;
+    border-color: #f2f2f2;
+    border-style: solid;
+}
+
+.text {
+    margin-top: 40px;
+    margin-left: 220px;
+}
+
+.ordinary {
+    padding-left: 240px;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+    font-weight: 500;
+}
+
+.center {
+    margin: 0;
+    left: 50%;
+    position: absolute;
+}
+
+.form-box {
+    margin-left: 45px;
+}
+
+.edit {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.delete {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+}
+
+ .fa:hover {
+    opacity: 0.7;
+ }
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+#table-standard {
+    width: 80%; /*95*/
+    margin-left: 260px; /*auto;*/
+    margin-right: auto;
+    text-align: center;
+}
+
+#table-standard-search {
+    width: 80%; /*95*/
+    margin-left: 100px; /*auto;*/
+    margin-right: auto;
+    text-align: center;
+}
+
+#table_standard_skills {
+    width: 80%; /*95*/
+    margin-left: 50px; /*auto;*/
+    margin-right: auto;
+    text-align: center;
+}
+
+#table-standard-profile {
+    width: 80%; /*95*/
+    margin-left: 100px; /*auto;*/
+    margin-right: auto;
+    text-align: center;
+}
+
+#table-heading {
+    color: white;
+    background-color: #4d94ff;
+    text-align: center;
+}
+
+#table-heading-admin {
+    color: white;
+    background-color: #4d94ff;
+    text-align: center;
+    table-layout: fixed;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bottom {
+    vertical-align: 200px;
+}
+
+.user-profile-edit {
+    padding-left: 250px;
+}
+
+#profile-descrip-update {
+    min-height: 200px;
+    max-height: 300px;
+}

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Taskmaster.ViewModels.CategoryViewModel>
+
+@{
+    ViewData["Title"] = "Skills Management";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- row -->
+<h1>Skills Management</h1>
+<div class="row mt">
+    <div class="col-lg-12">
+        <div class="content-panel">
+            <h1>Skills Management</h1>
+            <a class="btn btn-primary btn-xs" asp-action="AddCategory" title="Add Category">Add Category</a>
+        </div>
+    </div>
+</div>
+
+@foreach (var category in Model.OrderBy(c => c.Name))
+{
+    <div class="row mt">
+        <div class="col-md-12">
+            <div class="content-panel">
+                <table class="table table-striped table-advance table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">
+                                <h4>
+                                    @Html.DisplayFor(modelItem => category.Name)
+                                </h4>
+                            </th>
+                            <th style="width: 50%">
+                                @Html.DisplayFor(modelItem => category.Description)
+                            </th>
+                            <th style="text-align: right;">
+                                <a class="btn btn-primary btn-xs" asp-action="AddSkill" asp-route-id="@category.ID" title="Add Skill"><i class="fa fa-plus"></i></a>
+                                <a class="btn btn-primary btn-xs" asp-action="EditCategory" asp-route-id="@category.ID" title="Edit Category"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-danger btn-xs" asp-action="DeleteCategory" asp-route-id="@category.ID" title="Delete Category"><i class="fa fa-trash-alt"></i></a>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <table class="table table-striped table-advance table-hover">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%">
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th style="width: 50%">
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th style="text-align: right;">
+                                &nbsp;
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var skill in category.Skills.OrderBy(s => s.Name))
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => skill.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => skill.Description)
+                                </td>
+                                <td style="text-align: right;">
+                                    <a class="btn btn-primary btn-xs" asp-action="EditSkill" asp-route-id="@skill.ID" title="Edit Skill"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-danger btn-xs" asp-action="DeleteSkill" asp-route-id="@skill.ID" title="Delete Skill"><i class="fa fa-trash-alt"></i></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /content-panel -->
+        </div>
+        <!-- /col-md-12 -->
+    </div>
+}

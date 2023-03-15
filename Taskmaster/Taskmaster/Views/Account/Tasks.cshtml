@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Taskmaster.Models.Task>
+
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<div class="outer-tasks-container">
+    <div class="inner-tasks-container">
+            <div class="th-header">
+                <h1 class="mytasks-header"> Your Tasks </h1>
+                <form class="mytasks-header-form">
+                    <button asp-controller="Account" asp-action="AddTask" class="mytasks-header-btn btn-success">ADD <i class="fa fa-edit"></i></button>
+                </form>
+            </div>
+            <div class="table-container">
+                <table class="table-tasks" id="myTableData">
+                    <tr class="tr-tasks-head">
+                        <th class="th-1">Cost</th>
+                        <th class="th-2">Title</th>
+                        <th class="th-4">Actions</th>
+                    </tr>
+                    @foreach (var item in Model.Where(t => !t.Completed))
+                    {
+                        <tr class="tr-tasks">
+                            <td class="tasks-cell">@Html.DisplayFor(modelItem => item.Payment)</td>
+                            <td class="tasks-cell">@Html.DisplayFor(modelItem => item.Name)</td>
+                            <form>
+                                <td class="tr-buttons">
+                                    <button class="btn-edit" asp-route-id="@item.ID" asp-action="Edittask" asp-controller="Account">Edit</button>
+                                    <button class="btn-delete" asp-route-id="@item.ID" asp-action="Deletetask" asp-controller="Account">Delete</button>
+                                    <button class="btn-view" asp-route-id="@item.ID" asp-action="Task" asp-controller="Search">View</button>
+                                    <button class="btn-done" asp-route-id="@item.ID" asp-action="CompleteTask" asp-controller="Account">Done</button>
+                                    <button class="btn-skills" asp-route-id="@item.ID" asp-action="EditTaskSkills" asp-controller="Account">Skills+</button>
+                                </td>
+                            </form>
+                        </tr>
+                    }
+                </table>
+            </div>
+        <div class="th-footer"></div>
+    </div>
+</div>

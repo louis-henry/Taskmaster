@@ -1,0 +1,26 @@
+﻿@model Taskmaster.Models.Skill
+
+@{
+    ViewData["Title"] = "Deactivate account";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<title>Deactivate account</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<header></header>
+<h1 class="action">Deactivate account</h1>
+<div class="text">
+    <p class="ordinary" style="padding-left: 20%; padding-right: 20%;">
+        After 30 days of your account deletion request, your account and all your information will be permanently deleted, and you won't be able to retrieve your information. It may take up to 90 days from the beginning of the deletion process to delete all the things you've posted. While we're deleting this information, your tasks will be frozen and all postings will be disabled.
+    </p>
+    <br />
+
+    <div class="container">
+        <div class="center">
+            <form asp-action="Deactivate">
+                <input type="submit" value="Deactivate" class="btn-layout" />
+            </form>
+        </div>
+    </div>
+</div>

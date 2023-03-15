@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2020-10-04T08:29:50.3540314Z"
+    }
+  },
+  "parameters": {
+    "resourceGroup": {
+      "Type": "resourceGroup",
+      "Value": "Taskmaster"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "457c31ab-3ca1-42b4-aa34-c0ace47921c1"
+    }
+  }
+}

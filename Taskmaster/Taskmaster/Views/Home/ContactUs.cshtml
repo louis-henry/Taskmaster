@@ -1,0 +1,87 @@
+﻿@model  Taskmaster.ViewModels.ContactUsViewModel
+@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <link rel="stylesheet" href="~/css/cu-style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<section id="contact-us-body">
+    <div class="cu-container">
+        <div class="contact-head">
+            <div class="contact-head-cols">
+                <h1>Connect With Us.</h1>
+                <p>Feel free to contact us anytime. <br> Your concerns are our concerns. <br> Let us help you help others.</p>
+            </div>
+            <div class="contact-head-cols">
+                <img src="@Url.Content("~/images/contactus/Teamwork.png")" alt="teamwork" style="margin-top:-50px;">
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <div class="contact-left">
+                <h3>Reach Us</h3>
+                <table>
+                    <tr>
+                        <td>Address:</td>
+                        <td>
+                            124 La Trobe St <br>
+                            Melbourne VIC 3000
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td>(03) 9925 2000</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>taskmaster.rmit.noreply@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="contact-right">
+                <h3>Send your request</h3>
+                <div asp-validation-summary="All" class="text-danger" style="display: none"></div>
+                <form asp-action="ContactUs">
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>First</label>
+                            <input asp-for="FirstName" type="text" placeholder="First Name" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="input-group">
+                            <label>Last</label>
+                            <input asp-for="Surname" type="text" placeholder="Last Name" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input asp-for="Email" type="email" placeholder="example@gmail.com" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="input-group">
+                            <label>Subject</label>
+                            <input asp-for="Subject" type="text" placeholder="What is your subject of concern?" />
+                            <span asp-validation-for="Subject" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <label>Message</label>
+                    <textarea asp-for="Message" rows="5" placeholder="Tell us more in detail..."></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                    <br />
+                    @if (Model.Sent)
+                    {
+                        <div style="color: green">Thankyou for contacting us.</div>
+                    }
+                    else
+                    {
+                        <button type="submit">Send</button>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

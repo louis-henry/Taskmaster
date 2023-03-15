@@ -1,0 +1,43 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Taskmaster</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/user-admin.css" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+</head>
+<body class="layout">
+
+    <div class="sidenav">
+        <!--logo start-->
+        <a href="@Url.Action("Index", "Home")" class="logo"><img src="@Url.Content("~/images/taskmaster-logo.png")" width="80" height="40"></a>
+        <!--logo end-->
+        <ul>
+            <li class="button">
+                <input class="left-nav-btn" type="button" value="Taskmaster" onclick="location.href='@Url.Action("Index", "Home")'" />
+            </li>
+            <li class="button">
+                <input class="left-nav-btn" type="button" value="My skills" class="btn-layout" onclick="location.href='@Url.Action("Skills", "User")'" />
+            </li>
+            <li class="button">
+                <input class="left-nav-btn" type="button" value="My profile" class="btn-layout" onclick="location.href='@Url.Action("Profile", "Account")'" />
+            </li>
+            <li class="button">
+                <input class="left-nav-btn" type="button" value="Password settings" class="btn-layout" onclick="location.href='@Url.Action("ChangePassword", "Secure")'" />
+            </li>
+            <li class="button">
+                <input class="left-nav-btn" type="button" value="Deactivate" class="btn-layout" onclick="location.href='@Url.Action("Deactivate", "User")'" />
+            </li>
+            <li class="button">
+                <input class="left-nav-btn" type="button" value="Logout" class="btn-layout" onclick="location.href='@Url.Action("Logout", "Secure")'" />
+            </li>
+        </ul>
+    </div>
+    <section id="main-content">
+        @RenderBody()
+    </section>
+</body>
+</html>

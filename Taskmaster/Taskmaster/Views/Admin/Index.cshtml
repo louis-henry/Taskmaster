@@ -1,0 +1,153 @@
+﻿@model Taskmaster.ViewModels.AdminViewModel
+
+@{
+    ViewData["Title"] = "Administrator Dashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<head>
+    <script src="~/lib/chart-load/Chart.js"></script>
+</head>
+
+
+<section class="wrapper">
+    <div class="row">
+        <div class="col-lg-12 main-chart">
+           
+            <!--CUSTOM CHART START -->
+            <div class="border-head">
+                <h3>Tasks (Price dependant)</h3>
+            </div>
+            <div class="custom-bar-chart" id="custom-bar-chart">
+                <ul class="y-axis"> 
+                    <!--Adds the Y axis values for the Chart depending on amount of tasks -->
+                    @foreach (var yvalue in Model.Yaxis)
+                    {
+                        <li><span>@Html.DisplayFor(modelItem => yvalue)</span></li>
+                    }
+                </ul>
+                <!--Adds the X axis values and bar values  -->
+                @foreach (var xvalue in Model.Xaxis)
+                {
+                    <div class="bar">
+                        <div class="title">@Html.DisplayFor(modelItem => xvalue.Title)</div>
+                        <div class="value tooltips" data-original-title="@Html.DisplayFor(modelItem => xvalue.Tooltip)" data-toggle="tooltip" data-placement="top">@Html.DisplayFor(modelItem => xvalue.Value)%</div>
+                    </div>
+                }
+            </div>
+            <!--custom chart end-->
+
+            <!-- Boxes ROW 1 Start -------------------------------------------->
+            <div class="row mt">
+                <!-- BOX@2 Start -->
+                <div class="col-md-3 mb">
+                    <div class="white-panel pn">
+                        <div class="white-header">
+                            <h5>YOUR TASKS</h5>
+                        </div>
+                        <p><img src="@Url.Content("~/images/admin/user.png")" class="img-circle" width="50"></p>
+                        <p><b>@Html.DisplayFor(modelItem => Model.YourTasks.Email)</b></p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="small mt">NAME</p>
+                                <p>@Html.DisplayFor(modelItem => Model.YourTasks.Name)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="small mt">ACTIVE TASKS</p>
+                                <p>@Html.DisplayFor(modelItem => Model.YourTasks.Value)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOX@2 End // -->
+                <!-- BOX@3 Start -->
+                <div class="col-md-3 mb">
+                    <div class="white-panel pn">
+                        <div class="white-header">
+                            <h5>TOP TASK PROVIDER</h5>
+                        </div>
+                        <p><img src="@Url.Content("~/images/admin/user.png")" class="img-circle" width="50"></p>
+                        <p><b>@Html.DisplayFor(modelItem => Model.ActiveTasks.Email)</b></p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="small mt">NAME</p>
+                                <p>@Html.DisplayFor(modelItem => Model.ActiveTasks.Name)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="small mt">ACTIVE TASKS</p>
+                                <p>@Html.DisplayFor(modelItem => Model.ActiveTasks.Value)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOX@3 End // -->
+                <!-- BOX@4 Start -->
+                <div class="col-md-3 mb">
+                    <div class="white-panel pn">
+                        <div class="white-header">
+                            <h5>MOST TASKS COMPLETE</h5>
+                        </div>
+                        <p><img src="@Url.Content("~/images/admin/user.png")" class="img-circle" width="50"></p>
+                        <p><b>@Html.DisplayFor(modelItem => Model.CompletedTasks.Email)</b></p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="small mt">NAME</p>
+                                <p>@Html.DisplayFor(modelItem => Model.CompletedTasks.Name)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="small mt">ACTIVE TASKS</p>
+                                <p>@Html.DisplayFor(modelItem => Model.CompletedTasks.Value)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOX@4 End // -->
+            </div>
+            <div class="row mt">
+                <!-- Boxes ROW 1 End // -------------------------------------------->
+                <!-- Boxes ROW 2 Start // -------------------------------------------->
+                <!-- BOX@5 Start -->
+                <div class="col-md-3 mb">
+                    <a asp-area="" asp-controller="Admin" asp-action="Users">
+                        <div class="white-panel pn dash-main-boxcontainer">
+                            <p><b><i class="fa fa-tasks dash-main-boxicons"></i></b></p>
+                            <p class="dash-box-subheadings">Accounts</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- BOX@5 End // -->
+                <!-- BOX@6 Start -->
+                <div class="col-md-3 mb">
+                    <a asp-area="" asp-controller="Admin" asp-action="Skills">
+                        <div class="white-panel pn dash-main-boxcontainer">
+                            <p><b><i class="fa fa-tasks dash-main-boxicons"></i></b></p>
+                            <p class="dash-box-subheadings">Skills</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- BOX@6 End // -->
+                <!-- BOX@7 Start -->
+                <div class="col-md-3 mb">
+                    <a asp-area="" asp-controller="Admin" asp-action="AnalyticTaskCurrent">
+                        <div class="white-panel pn dash-main-boxcontainer">
+                            <p><b><i class="fa fa-chart-bar dash-main-boxicons"></i></b></p>
+                            <p class="dash-box-subheadings">Analytics</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- BOX@7 End // -->
+                <!-- BOX@8 Start -->
+                <div class="col-md-3 mb">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <div class="white-panel pn dash-main-boxcontainer">
+                            <p><b><i class="fa fa-home dash-main-boxicons"></i></b></p>
+                            <p class="dash-box-subheadings">Home</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- BOX@8 End // -->  
+            <!-- Boxes ROW 2 End // -------------------------------------------->
+        </div>
+    </div>
+</section>
+
